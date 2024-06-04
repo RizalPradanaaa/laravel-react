@@ -44,7 +44,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return inertia("Show", compact("post"));
     }
 
     /**
@@ -68,6 +68,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect("/")->with("message", "Post deleted successfully");
     }
 }

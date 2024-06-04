@@ -22,6 +22,12 @@ function Home({ posts }) {
               <span>{post.created_at.slice(0, 10)}</span>
             </div>
             <p className="font-medium">{post.body}</p>
+            <Link
+              href={`/posts/${post.id}`}
+              className="text-blue-500 hover:underline"
+            >
+              Read more
+            </Link>
           </div>
         ))}
 
