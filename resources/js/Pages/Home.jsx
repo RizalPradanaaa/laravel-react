@@ -1,4 +1,4 @@
-import { Link, usePage } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 function Home({ posts }) {
   const { flash } = usePage().props;
@@ -8,6 +8,13 @@ function Home({ posts }) {
   }, 2000);
   return (
     <>
+      <Head title="Home">
+        <meta
+          head-key="description"
+          name="description"
+          content="This is the default description"
+        />
+      </Head>
       <h1 className="title">List Posts</h1>
       <div className="w-2/3 mx-auto">
         {flashMsg && (

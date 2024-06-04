@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { router, usePage } from "@inertiajs/react";
+import { Head, router, usePage } from "@inertiajs/react";
 export default function Create() {
   const { errors } = usePage().props;
   const [value, setValue] = useState({
@@ -19,6 +19,13 @@ export default function Create() {
   }
   return (
     <>
+      <Head title="Create">
+        <meta
+          head-key="description"
+          name="description"
+          content="This is the default description"
+        />
+      </Head>
       <h1 className="title">Create Post</h1>
       <div className="w-2/3 mx-auto">
         <form onSubmit={handleSubmit}>
