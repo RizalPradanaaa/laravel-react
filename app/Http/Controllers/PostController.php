@@ -36,7 +36,7 @@ class PostController extends Controller
         ]);
 
         Post::create($post);
-        return redirect("/");
+        return redirect("/")->with("message", "Post created successfully");
     }
 
     /**

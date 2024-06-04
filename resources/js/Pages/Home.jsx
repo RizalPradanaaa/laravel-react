@@ -1,10 +1,20 @@
-import { Link } from "@inertiajs/react";
-
+import { Link, usePage } from "@inertiajs/react";
+import { useState } from "react";
 function Home({ posts }) {
+  const { flash } = usePage().props;
+  const [flashMsg, setFlashMsg] = useState(flash.message);
+  setTimeout(() => {
+    setFlashMsg(null);
+  }, 2000);
   return (
     <>
       <h1 className="title">List Posts</h1>
       <div className="w-2/3 mx-auto">
+        {flashMsg && (
+          <div className="bg-red-500 text-white px-3 py-2 rounded-md w-1/4 text-center">
+            {flashMsg}
+          </div>
+        )}
         {posts.data.map((post) => (
           <div key={post.id} className="p-4 border-b-2">
             <div className="text-sm text-slate-500">
